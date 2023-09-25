@@ -1,0 +1,43 @@
+<app-menu [currentBackNavigation]="navigateItens"></app-menu>
+
+<ion-content class="main">
+  <div class="center">
+    <div class="center" >
+      <p class="center-text">
+        Filtrar Modelos
+      </p>
+    </div>
+      <ion-grid>
+        <ion-row>
+            <ion-col size="6" (click)="toGroup()">
+              <button [ngClass]="selectedButton === 'group' ? 'select' : 'no-select'">
+                Grupo
+            </button>
+            </ion-col>
+            <ion-col size="6" (click)="toRow()">
+              <button [ngClass]="selectedButton === 'row' ? 'select' : 'no-select'">
+                linha
+            </button>
+            </ion-col>
+        </ion-row>
+      </ion-grid>
+  </div>
+
+  <div >
+    <div class="null" *ngIf="groups.length === 0" > 
+      <img src="../../assets/icon/search.svg" alt="">
+      <p class="desc">Nenhum grupo cadastrado</p>
+    </div>
+    <ion-list *ngIf="selectedButton === 'group' "  >
+      <ion-item (click)="toTypeGroup(group.id)" *ngFor="let group of groups">{{ group.descricao }}</ion-item>
+    </ion-list>
+  </div>
+
+ 
+
+  <ion-list *ngIf="selectedButton === 'row'" >
+    <ion-item *ngFor="let row of rows" (click)="toRouteRow(row)">{{ row }}</ion-item>
+  </ion-list>
+</ion-content>
+
+

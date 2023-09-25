@@ -1,0 +1,132 @@
+<app-menu [currentBackNavigation]="navigateEdificio"></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-content class="content" [fullscreen]="true" scroll-assist="false">
+      <div class="fullContainer">
+          <div class="center" >
+            <p class="center-text">
+              Detalhes edificio
+            </p>
+          </div>
+  
+          <h1 *ngIf="buildDetail" class="propertyTittle">
+              {{ buildDetail.nome }}
+          </h1>
+  
+          <div class="cardContainer">
+            <div class="card">
+                <div class="iconDiv">
+                    <ion-icon name="cube"></ion-icon>
+                </div>
+                <div class="contentDiv" *ngIf="buildDetail" >
+                    <div class="contentDiv1">
+                      <h1><b class="bold">Nome:</b> {{buildDetail.nome}}</h1>
+                    </div>
+                    <div class="contentDiv2">
+                      <h1><b class="bold">Largura:</b> {{buildDetail.largura}}</h1>
+                      <h1><b class="bold">Comprimento:</b> {{buildDetail.comprimento}}</h1>
+                    </div>
+                    <div class="contentDiv3">
+                        <h1><b class="bold">Pavimentos:</b>
+                          {{convertNumbers(buildDetail.pavimento)}}</h1>
+                        <h1><b class="bold">Subsolos:</b> 
+                          {{convertNumbers(buildDetail.subsolo)}}
+                        </h1>
+                      <div class="buttonDiv">
+                        <button class="editButton">
+                          <ion-icon name="pencil" (click)="setOpen(true)"></ion-icon>
+                        </button>
+                      </div>
+                    </div>
+                </div>
+                
+            </div>
+          </div>
+  
+          <div *ngIf="currentAnexos.length > 0">
+            <app-image-carosel *ngIf="currentAnexos" [currentAnexos]="currentAnexos"></app-image-carosel>
+          </div>
+          
+          <ion-button (click)="toCompartimentos()" class="toEdificiosButton">Ver Compartimentos</ion-button>
+      </div>
+  
+      <ion-modal [isOpen]="isModalOpen">
+        <ng-template>
+          <ion-header class="headerItens" [translucent]="true" id="main-content">
+            <div class="innerDiv">
+              <ion-icon (click)="setOpen(false)"  class="back-icon" name="arrow-back"></ion-icon>
+              <ion-img class="logo" src="../../assets/spark-logo.svg" alt="sparkk-logo"></ion-img>
+             <div>
+              
+             </div>
+            </div>
+        </ion-header>
+  
+          <ion-content class="ion-padding">
+            <div class="center" >
+              <p class="center-text-header">
+                Atualizar Edifícios
+              </p>
+              <hr/>
+            </div>
+            <form [formGroup]="buildingForm" (ngSubmit)="onSubmit(buildingForm)">
+              <ion-grid>
+                <ion-row>
+                   <ion-col size="12">
+                      <div style="padding: 5px;" class="inputDiv">
+                          <ion-input class="innerInput" label="Nome"  formControlName="nome"   label-placement="floating" fill="outline" placeholder="Nome"></ion-input>
+                      </div>
+                   </ion-col>
+                   <ion-col size="12">
+                    <div style="padding: 5px;" class="inputDiv">
+                      <ion-input class="innerInput" label="Descrição" formControlName="descricao" name="descricao" label-placement="floating" fill="outline" placeholder="Descricao"></ion-input>
+                    </div>
+                 </ion-col>
+                    <ion-col size="6">
+                        <div style="padding: 5px;" class="inputDiv">
+                          <ion-input type="number" class="innerInput" label="Largura"  formControlName="largura" name="largura" label-placement="floating" fill="outline" placeholder="Largura"></ion-input>
+                        </div>               
+                  </ion-col>
+                    <ion-col size="6">
+                      <div style="padding: 5px;" class="inputDiv">
+                        <ion-input type="number" class="innerInput" label="Comprimento" formControlName="comprimento"  name="comprimento" label-placement="floating" fill="outline" placeholder="Comprimento"></ion-input>
+                      </div>               
+                  </ion-col>
+                    <ion-col size="6">
+                      <div style="padding: 5px;" class="inputDiv">
+                        <ion-input type="number" class="innerInput" label="Pavimento" formControlName="pavimento"  name="pavimento"  label-placement="floating" fill="outline" placeholder="Pavimento"></ion-input>
+                      </div>               
+                  </ion-col>
+                    <ion-col size="6">
+                      <div style="padding: 5px;" class="inputDiv">
+                        <ion-input type="number" class="innerInput" label="Subsolo" formControlName="subsolo" name="subsolo"  label-placement="floating" fill="outline" placeholder="Subsolo"></ion-input>
+                      </div>               
+                  </ion-col>
+                </ion-row>
+            </ion-grid>
+            
+              <div id="images">
+  
+                  <div *ngIf="currentAnexos.length > 0">
+                    <app-image-carosel *ngIf="currentAnexos" [currentAnexos]="currentAnexos"></app-image-carosel>
+                  </div>
+    
+                  <ion-button type="button" class="button-img" (click)="takePicture()" > 
+                    <ion-icon name="camera" class="camera-icon"></ion-icon>
+                    Capturar imagem
+                  </ion-button>
+             
+              </div>
+    
+              <div class="actions">
+                  <ion-button [disabled]="!submitButton" type="submit">Salvar</ion-button>
+              </div>
+            </form>
+  
+          </ion-content>
+          
+        </ng-template>
+      </ion-modal>
+  </ion-content>
+  <app-block-loading></app-block-loading>
+</div>

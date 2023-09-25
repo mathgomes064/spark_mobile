@@ -1,0 +1,20 @@
+<div class="imgCarosel">
+  <div class="innerImgCarosel">
+    <ion-img  (click)="showDialog(anexo)"  *ngFor="let anexo of currentAnexosToSave" class="propertyImg" src={{anexo.url}} alt={{anexo.nome}}></ion-img>
+  </div>
+</div>
+
+<div class="imgCarosel">
+  <div class="innerImgCarosel">
+    <ion-img  (click)="showDialog(anexo)"  *ngFor="let anexo of currentAnexos" class="propertyImg" src={{anexo.url}} alt={{anexo.nome}}> </ion-img>
+  </div>
+</div>
+
+<p-dialog id="dialog" *ngIf="detailImg" [(visible)]="visible">
+  <div class="imageContainer">
+    <ion-img class="innerImage" src={{detailImg.url}} alt={{detailImg.nome}}> </ion-img>
+  </div>
+</p-dialog>
+
+
+

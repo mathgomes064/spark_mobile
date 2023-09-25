@@ -1,0 +1,46 @@
+<app-menu [currentBackNavigation]="navigatePropriedade"></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-content class="content" [fullscreen]="true" scroll-assist="false" *ngIf="getDetailPropriedades">
+    <div class="fullContainer">
+      <div class="center" >
+        <p class="center-text">
+          Detalhes propriedade
+        </p>
+      </div>
+  
+      <h1 class="propertyTittle">{{getDetailPropriedades.nome}}</h1>
+  
+      <ul class="cardContainer">
+        <div class="card">
+          <div class="iconDiv">
+            <ion-icon name="cube"></ion-icon>
+          </div>
+          <div class="contentDiv">
+            <div class="contentDiv1">
+              <h1><b class="bold">Logradouro:</b> {{getDetailPropriedades.logradouro}}, {{getDetailPropriedades.numero}}</h1>
+            </div>
+            <div class="contentDiv2">
+              <h1><b class="bold">Bairro:</b> {{getDetailPropriedades.bairro}}</h1>
+              <h1><b class="bold">Complemento:</b> {{getDetailPropriedades.complemento}}</h1>
+            </div>
+            <div class="contentDiv3">
+              <h1><b class="bold">Cidade:</b>
+                {{getDetailPropriedades.cidade}} - {{getDetailPropriedades.estado}}</h1>
+             
+            </div>
+            <div class="contentDiv3">
+              <h1><b class="bold">CEP:</b>
+                {{getDetailPropriedades.cep | cep}}
+              </h1>
+            </div>
+        </div>
+        </div>
+      </ul>
+  
+      <app-image-carosel *ngIf="currentAnexos" [currentAnexos]="currentAnexos"></app-image-carosel>
+  
+      <ion-button (click)="toBuilding()" class="showItem">Ver todos os Edifícios</ion-button>
+    </div>
+  </ion-content>
+</div>

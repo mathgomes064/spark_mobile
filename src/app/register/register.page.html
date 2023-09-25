@@ -1,0 +1,26 @@
+<ion-header class="headerItens" [translucent]="true">
+    <ion-icon class="back-icon" [routerLink]="['/login']" name="arrow-back"></ion-icon>
+    <ion-img class="logo" src="../../assets/spark-logo.svg" alt="saprk-logo"></ion-img>
+    <div class="phantonDiv"></div>
+</ion-header>
+
+<ion-content [fullscreen]="true" scroll-assist="false">
+
+  <div class="content">
+    <ion-card class="container">
+      <form class="form" [formGroup]="registerForm" (ngSubmit)="submiRegistertForm()">
+        <ion-input formControlName="name" class="loginInput" label="Nome" label-placement="floating" fill="outline"></ion-input>
+        <ion-input formControlName="cpf" class="loginInput" label="CPF" label-placement="floating" fill="outline"></ion-input>
+        <ion-input formControlName="telefone" class="loginInput" label="Telefone" label-placement="floating" fill="outline"></ion-input>
+        <ion-input formControlName="email" class="loginInput" label="Email" label-placement="floating" fill="outline"></ion-input>
+        <ion-input formControlName="password" class="loginInput" label="Senha" label-placement="floating" fill="outline"></ion-input>
+        <ion-input formControlName="confirmPassword" class="loginInput" label="Confirmar Senha" label-placement="floating" fill="outline"></ion-input>
+  
+        <ion-button type="submit" class="loginButton">Cadastrar</ion-button>
+      </form>
+    </ion-card>
+  </div>
+
+</ion-content>
+<p-toast [style]="{width: '90%'}"></p-toast>
+<app-block-loading></app-block-loading>

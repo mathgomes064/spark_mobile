@@ -1,0 +1,116 @@
+
+.content{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .contentContainer{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .innerDivUm{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 20px;
+
+            .welcomeTittle{
+                font-size: 20px;
+                padding: 10px;
+            
+                width: 100%;
+                min-width: 250px;
+                max-width: 340px;
+                margin: 0;
+            }
+
+            .userIcon{
+                padding: 10px 0;
+            }
+        }
+
+        
+        .innerDivDois{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            .contentTittle{
+                font-size: 20px;
+                padding: 20px 10px;
+            
+                width: 100%;
+                min-width: 250px;
+                max-width: 340px;
+                margin: 0;
+            }
+
+            .innerDivTres{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                height: 250px;
+                background-repeat: no-repeat;
+                background-position: right;
+                background-size: 95%;
+
+                .propertyTittle{
+                    font-size: 20px;
+                    padding: 10px;
+                
+                    width: 100%;
+                    text-align: center;
+                    min-width: 250px;
+                    max-width: 340px;
+                }
+
+                .propertyCard{
+                    width: 131px;
+                    height: 134px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: #FFE666;
+                    border-radius: 12px;
+                    justify-content: center;
+
+                    .buildIcon{
+                        color: #000000;
+                        font-size: 40px;
+                    }
+
+                    
+                    
+                    .cardTittle{
+                        color: #000000;
+                        padding-top: 2px;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

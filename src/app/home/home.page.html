@@ -1,0 +1,26 @@
+<app-menu [lobby]="true"></app-menu>
+
+<div class="ion-page" id="main-content">
+    <ion-content class="content" [fullscreen]="true" scroll-assist="false">
+        <div class="contentContainer">
+            <div class="innerDivUm">
+                <h1 class="welcomeTittle">Bem vindo, Administrador!</h1>
+            
+                <ion-img   src="../../assets/SPARK_woman 2.svg" alt="spark_woman" class="userIcon"></ion-img>
+            </div>
+
+            <div class="innerDivDois">
+                <h1 class="contentTittle">Vamos começar?</h1>
+                <div class="innerDivTres">
+                    <h1 class="propertyTittle">Ver propriedades</h1>
+                
+                    <ion-card (click)="toPropriedade()"  class="propertyCard">
+                        <ion-icon class="buildIcon" name="business"></ion-icon>
+                        <h2 class="cardTittle">Propriedades</h2>
+                    </ion-card>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</div>
+

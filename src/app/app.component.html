@@ -1,0 +1,45 @@
+
+<ion-menu menuId="first-menu" contentId="main-content">
+  <ion-content class="ion-padding">
+      <div class="menu">
+          
+          <div class="menuInnerDiv">
+              <div class="userIcon">
+                  <ion-img src="../../../assets/userIcon.svg" alt="" class="icon"></ion-img>
+              </div>
+
+              <h1 class="welcomeTittle">Bem vindo, Administrador!</h1>
+        
+              <ul>
+                <li class="list">
+                  <ion-icon class="icon" name="settings"></ion-icon>
+                    Configurações
+                </li>
+                <li class="list">
+                  <ion-icon class="icon" name="notifications"></ion-icon>
+                    Notificações
+                </li>
+                <li class="list">
+                  <ion-icon class="icon" name="create"></ion-icon>
+                    Alterar Senha
+                </li>
+                <li class="list" (click)="goExit()">
+                  <ion-icon class="icon" name="exit"></ion-icon>
+                    Sair
+                </li>
+              </ul>
+          </div>
+
+          <div class="backgroundSpark">
+              <span class="innerSpan">SPARK, All rights reserved 2023 ©</span>
+          </div>
+      </div>
+  </ion-content>
+</ion-menu>
+
+<ion-app>
+  <div class="btn-absl">
+      <ion-img *ngIf="isNotLoginOrRegister()" (click)="openMenu()" src="../../../../assets/userIcon.svg" alt="" class="userIcon"></ion-img>
+  </div>
+  <ion-router-outlet  id="main-content"></ion-router-outlet>
+</ion-app>

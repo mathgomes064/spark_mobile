@@ -1,0 +1,152 @@
+
+.propertyTittle {
+    padding-top:  5%;
+    padding-bottom: 5%;
+}
+
+.compartimentoTittle{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: #FFE666;
+}
+
+.fullContainer{
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .cardContainer{
+        width: 100%;
+        min-width: 250px;
+        max-width: 425px;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .card{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: 5px 0;
+            border-radius: 12px;
+            border: 1px solid #FFFFFF;
+            color: #000000;
+            padding: 10px;
+
+            .iconDiv{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                font-size: 30px;
+                color: #FFFFFF;
+            }
+
+            .contentDiv{
+                width: 86%;
+                color: #FFFFFF;
+                font-size: 14px;
+
+                .bold{
+                    font-weight: bold;
+                    color: #FFE666;
+                }
+
+                .contentDiv1{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 0;
+
+                }
+
+                .contentDiv2{
+                    h1{
+                        padding: 5px 0;
+                    }
+
+                }
+
+                .contentDiv3{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 0;
+                }
+            }
+
+             .innerButtonDiv{
+                width: 100%;
+                background-color: gray;
+             }
+
+             .editButton{
+                width: 25px;
+                height: 25px;
+                border-radius: 100px;
+             }
+
+        }
+
+    }
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.center-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    border-bottom: 1px solid white;
+    width: 70vw;
+    padding-bottom: 10px;
+
+    p{
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+
+
+
+.showItem{
+    width: 90%;
+    min-width: 250px;
+    max-width: 425px;
+    margin-top: 10px;
+    color: #000000;
+    font-weight: bold;
+    --background: #FFE666;
+    --border-radius: 10px;
+}
+
+.totalItens{
+    width: 90%;
+    min-width: 250px;
+    max-width: 425px;
+    margin-top: 10px;
+    color: #000000;
+    font-weight: bold;
+    --background: transparent;
+    border: 1px solid #FFE666;
+    color: #FFE666;
+    border-radius: 10px;
+}

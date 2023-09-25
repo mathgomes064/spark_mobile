@@ -1,0 +1,44 @@
+<ion-modal class="modal" [isOpen]="isModalOpen">
+  <ng-template>
+
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Cadastrar Compartimento</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="setOpen()">Fechar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+
+
+    <ion-content class="ion-padding">
+
+     <form class="form" [formGroup]="compartimentoForm" (ngSubmit)="submitForm()">
+      <ion-input formControlName="descricao" class="loginInput" label="Descrição" label-placement="floating" fill="outline"></ion-input>
+      <ion-input type="number" formControlName="largura" class="loginInput" label="Largura" label-placement="floating" fill="outline"></ion-input>
+      <ion-input type="number" formControlName="comprimento" class="loginInput" label="Comprimento" label-placement="floating" fill="outline"></ion-input>
+      <ion-input type="number" formControlName="andar_compartimento" class="loginInput" label="Andar Compartimento" label-placement="floating" fill="outline"></ion-input>
+      
+      <h1 class="compartimentoTittle">Fotos do Compartimento</h1>
+      
+      <app-image-carosel></app-image-carosel>
+      
+      <div class="buttonDiv">
+        <ion-button class="totalItens">
+          <ion-icon class="buttonIcon" name="camera"></ion-icon>
+          Capturar Imagem</ion-button>
+          
+          <ion-button class="showQuadros">
+          <ion-icon class="buttonIcon" name="image"></ion-icon>
+          Selecionar da Galeria</ion-button>
+            
+          <button type="submit" class="submitButton">Salvar</button>
+      </div>
+
+     </form>
+
+    </ion-content>
+  </ng-template>
+</ion-modal>
+<p-toast position="bottom-center" [style]="{width: '90%'}"></p-toast>
+<app-block-loading></app-block-loading>

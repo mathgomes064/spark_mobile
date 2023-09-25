@@ -1,0 +1,7 @@
+{
+  "name": "Spark",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

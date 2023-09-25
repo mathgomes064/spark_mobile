@@ -1,0 +1,65 @@
+  .headerItens{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #112037;
+  }
+
+  .back-icon{
+    color: #FFFFFF;
+  }
+
+  .logo{
+    width: 150px;
+  }
+
+  .phantonDiv{
+    padding: 10px;
+  }
+  
+  .content{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    box-shadow: none;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+
+    width: 85vw;
+    min-width: 250px;
+    max-width: 340px;
+    // background-color: gray;
+  }
+  
+  .loginInput {
+    margin: 10px 0;
+    --border-color: #FFE666;
+    color: #FFFFFF;
+  }
+
+  
+  .loginButton{
+    width: 100%;
+    margin: 10px 0;
+    --background: #FFE666;
+    color: #000000;
+  }
+  
+  .input-fill-outline{
+    --border-color: #FFE666;
+  }

@@ -1,0 +1,21 @@
+
+<ion-content [fullscreen]="true" scroll-assist="false">
+  <div class="content">
+    <ion-card class="container">
+      <ion-img class="logo" src="../../assets/spark-logo.svg" alt="spark-logo"></ion-img>
+
+      <form class="form" [formGroup]="loginForm" (ngSubmit)="submitForm()">
+        <input class="emailInput loginField" formControlName="email" placeholder="E-mail" pInputText/>
+
+        <p-password class="passwordInput loginField" formControlName="password" placeholder="Senha" [toggleMask]="true" [feedback]="false"></p-password>
+
+        <a href="#" class="passwordRecover">Esqueci minha senha</a>
+        <ion-checkbox class="checkBox" labelPlacement="end">Lembre-me</ion-checkbox>
+        <ion-button type="submit" class="loginButton">Entrar</ion-button>
+        <!-- <ion-button type="button" class="loginButton" [routerLink]="['/register']">Cadastrar</ion-button> -->
+      </form>
+    </ion-card>
+  </div>
+</ion-content>
+<p-toast [style]="{width: '90%'}"></p-toast>
+<app-block-loading></app-block-loading>

@@ -1,0 +1,68 @@
+.imgCarosel {
+  width: 100%;
+  margin: 10px 0;
+  padding: 0 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.innerImgCarosel {
+  width: 300px;
+  gap: 10px;
+  overflow-x: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.propertyImg {
+  width: 200px;
+  height: 200px;
+  object-position: center;
+  object-fit: cover;
+  flex-shrink: 0; 
+  margin: 0 auto;
+}
+
+  #dialog{
+    ::ng-deep{
+        .p-dialog{
+            width: 100%;
+            height: 60%;
+            min-width: 250px;
+            max-width: 425px;
+        }
+    }
+
+  }
+
+  .imageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+
+    
+  }
+  
+  :host ::ng-deep .p-dialog .p-dialog-content {
+    background: #112037;
+    color: rgba(0, 0, 0, 0.87);
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  :host ::ng-deep .p-dialog-draggable .p-dialog-header {
+      background: #112037;
+  }
+
+  :host ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: white;
+  }
+
+  :host ::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+      margin-right: 0;
+      color: white;
+  }

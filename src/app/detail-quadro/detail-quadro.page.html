@@ -1,0 +1,217 @@
+<app-menu [currentBackNavigation]="navigateQuadro"></app-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-content class="content" [fullscreen]="true" scroll-assist="false">
+    <div class="fullContainer" >
+      <div class="center">
+        <p class="center-text">
+          Detalhes do Quadro
+        </p>
+      </div>
+      <ul class="cardContainer">
+        <div class="card" *ngIf="quadro" >
+          <div class="innerCardUm">
+            <ion-img class="quadroUm" src="../../assets/quadro.svg"></ion-img>
+            <div class="innerCardUmInfo">
+              <h1>{{quadro.quantidade_circuito}} Circuitos</h1>
+              <h1>{{quadro.disjuntor_principal}} Principal</h1>
+            </div>
+          </div>
+  
+          <div *ngIf="quadro"  class="innerCardDois">
+            <h1>DPS {{quadro.dps_tipo_id.classe}}</h1>
+            <div class="innerCardDoisInfo">
+              <h1>{{quadro.dps_tipo_id.tensao}}</h1>
+              <h1>{{quadro.dps_tipo_id.corrente}}</h1>
+            </div>
+            <ion-img src="../../assets/quadro_2.svg"></ion-img>
+          </div>
+        </div>
+      </ul>
+    
+      <app-image-carosel [currentAnexos]="currentAnexos"></app-image-carosel>
+  
+      <ion-button (click)="setOpen()" class="totalItens">
+        <ion-icon class="editIcon" name="create"></ion-icon>
+        Editar Quadro
+      </ion-button>
+  
+    </div>
+  
+    <ion-modal [isOpen]="isModalOpen">
+      <ng-template>
+        <ion-header class="headerItens" [translucent]="true" id="main-content">
+          <div class="innerDiv">
+            <ion-icon (click)="setOpen()"  class="back-icon" name="arrow-back"></ion-icon>
+            <ion-img class="logo" src="../../assets/spark-logo.svg" alt="sparkk-logo"></ion-img>
+            <div>
+              
+            </div>
+          </div>
+      </ion-header>
+    
+      <ion-content class="ion-padding">
+        <div class="tittleDiv">
+          <p>
+            Atualizar Quadro
+          </p>
+        </div>
+  
+        <form [formGroup]="quadroEditForm" (ngSubmit)="onSubmit()">
+          <div class="geral" *ngIf="geralOuInternos === false">
+            <div class="geralDiv">
+              <ion-input class="formInput" formControlName="quadro_descricao" label="Descrição" label-placement="floating" fill="outline"></ion-input>
+  
+              <div class="geralChoice">
+  
+              <p-dropdown class="dropdownGeral" formControlName="tipo_qgbt" placeholder="Tipo de QGBT" [options]="tipo_qgbt" optionValue="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.descricao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.descricao.length > 20 ? option.descricao.substr(0, 20) + '...' : option.descricao }}</span>
+                  </ng-template>
+              </p-dropdown>
+  
+                <p-dropdown class="dropdownGeral" formControlName="tamanho_qgbt" placeholder="Tamanho do QGBT" [options]="tamanho_qgbt" optionValue="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.descricao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.descricao.length > 20 ? option.descricao.substr(0, 20) + '...' : option.descricao }}</span>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+        
+              <div class="horizontalLine">
+                <h1>Circuitos</h1>
+                <hr>
+              </div>
+        
+              <div class="circuitoDiv">
+                <ion-input formControlName="quantidade_circuito" class="circuitoInput" label="Quantidade" label-placement="floating" fill="outline" type="number"></ion-input>
+            
+                <ion-input formControlName="monofasico" class="circuitoInput" label="Monofásico" label-placement="floating" fill="outline" type="number"></ion-input>
+            
+                <ion-input formControlName="bifasico" class="circuitoInput" label="Bifásico" label-placement="floating" fill="outline" type="number"></ion-input>
+            
+                <ion-input formControlName="trifasico" class="circuitoInput" label="Trifásico" label-placement="floating" fill="outline" type="number"></ion-input>
+              </div>
+        
+              <div class="buttonDiv">
+                <ion-button  type="button" (click)="forward()" class="forwardButton">
+                  <ion-icon class="arrowIcon" name="arrow-forward-outline"></ion-icon>
+                  Próximo
+                </ion-button>
+              </div>
+            </div>
+          </div>
+        
+          <div class="internos" *ngIf="geralOuInternos === true">
+            <div class="internoDiv">
+              <div class="horizontalLine">
+                <h1>Disjuntores</h1>
+                <hr>
+              </div>
+        
+              <div class="div1">
+  
+                <p-dropdown class="dropdownGeral" formControlName="disjuntor_principal" placeholder="Disjuntor Principal" [options]="disjuntor_principal" optionValue="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.descricao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.descricao.length > 20 ? option.descricao.substr(0, 20) + '...' : option.descricao }}</span>
+                  </ng-template>
+                </p-dropdown>
+  
+                <p-dropdown class="dropdownGeral" formControlName="polos" placeholder="Polos" [options]="polos" optionValue="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.descricao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.descricao.length > 20 ? option.descricao.substr(0, 20) + '...' : option.descricao }}</span>
+                  </ng-template>
+                </p-dropdown>
+              </div>
+  
+              <div class="horizontalLine">
+                <h1>DPS</h1>
+                <hr>
+              </div>
+        
+              <div class="div2">
+  
+                <p-dropdown class="dropdownGeral" formControlName="possui_dps" placeholder="Possui DPS" [options]="possui_dps" optionValue="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.descricao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.descricao.length > 20 ? option.descricao.substr(0, 20) + '...' : option.descricao }}</span>
+                  </ng-template>
+                </p-dropdown>
+            
+                <ion-input class="dropdownGeral" formControlName="quantidade_dps" class="dropdownGeral formInput" label="Quantidade" label-placement="floating" fill="outline" type="number"></ion-input>
+              </div>
+        
+              <p-dropdown  formControlName="dps_tipo_id" placeholder="Tipo de DPS" (onChange)="getDps($event.value)" [options]="tipo_dps" [filter]="true" filterBy="descricao">
+                  <ng-template pTemplate="item" let-option>
+                      <span>{{ option.classe}} {{option.corrente}} {{option.tensao}}</span>
+                  </ng-template>
+                  <ng-template pTemplate="selectedItem" let-option>
+                      <span>{{ option.classe.length > 20 ? option.classe.substr(0, 20) + '...' : option.classe }}</span>
+                  </ng-template>
+              </p-dropdown>
+  
+              <div *ngIf="currentAnexos.length > 0">
+                <app-image-carosel *ngIf="currentAnexos" [currentAnexos]="currentAnexos"></app-image-carosel>
+              </div>
+          
+              <div class="div4">
+                <ion-button  type="button" class="camera" (click)="takePicture()">
+                  <ion-icon class="arrowIcon" name="camera-outline"></ion-icon>
+                  Capturar Imagem
+                </ion-button>
+          
+                <ion-button type="button" (click)="forward()" class="forwardButton">
+                  <ion-icon class="arrowIcon" name="arrow-back-outline"></ion-icon>
+                  Voltar
+                </ion-button>
+          
+                <ion-button [disabled]="!submitButton" type="submit" class="saveButton">
+                  <ion-icon class="arrowIcon" name="checkmark-outline"></ion-icon>
+                  Salvar
+                </ion-button>
+              </div>
+            </div>
+          </div>
+  
+        </form>
+  
+        <p-dialog (onHide)="createDPS=false" [draggable]="false" [modal]="true" id="dialog" [(visible)]="createDPS">
+          <p-header class="modal_header">
+              <h3>Adicionar Tipo DPS</h3>
+          </p-header>
+          <div class="modal">
+              <form [formGroup]="createDPSForm" (ngSubmit)="onSubmitDPS()">
+                  <div>
+                    <input formControlName="classe" id="dpsInput" type="text" pInputText placeholder="Classe"/>
+                    <input formControlName="corrente" id="dpsInput"type="text" pInputText placeholder="Corrente"/>
+                    <input formControlName="tensao" id="dpsInput" type="text" pInputText placeholder="Tensão"/>
+                  </div>
+                  <button label="Confirmar" id="addDps" pButton></button>
+              </form>
+          </div>
+        </p-dialog>
+    
+      </ion-content>
+    
+      </ng-template>
+    </ion-modal>
+    
+  </ion-content>
+  <p-toast position="bottom-center" [style]="{width: '90%'}"></p-toast>
+  <app-block-loading></app-block-loading>
+</div>
+
+

@@ -1,0 +1,40 @@
+
+
+.headerItens{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #112037;
+    
+    .back-icon{
+        color: #FFFFFF;
+    }
+
+    .innerDiv{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo{
+            width: 100px;
+        }
+
+        .userIcon{
+            color: white;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,54 @@
+<app-menu [currentBackNavigation]="navigateDetailCompartimento"></app-menu>
+
+<ion-content [fullscreen]="true">
+  <div class="fullContainer">
+    <div class="center">
+        <p class="center-text">
+          Itens
+        </p>
+    </div>
+
+    <div class="informations">
+      <div class="info-section">
+          <p class="info-label">Compartimento:</p>
+          <p class="info-value">{{ dataDash?.descricao }}</p>
+      </div>
+      <div class="info-section">
+          <p class="info-label">Andar do compartimento:</p>
+          <p class="info-value">{{ dataDash?.andar_compartimento }}</p>
+      </div>
+  </div>
+  
+    <ul class="card"  *ngFor="let itens of getItens" (click)="toDetails(itens.id)">
+      <div class="innerCard">
+          <div class="content">
+              <div class="item-row">
+                  <p class="header">Descricao: {{ itens.descricao }}</p>
+              </div>
+              <div class="item-row">
+                  <p class="header">Quantidade: {{ itens.quantidade }}</p>
+              </div>
+          </div>
+          <div>
+            <img class="thumb"  defaultImage="../../assets/Frame.svg" [lazyLoad]="itens?.thumbnail?.url"  alt="">
+          </div>
+      </div>
+  </ul>
+  
+ <div class="null" *ngIf="getItens?.length === 0">
+  <img src="../../assets/icon/search.svg" alt="">
+  <p>Nenhum item encontrado</p>
+</div>
+
+<ion-fab vertical="bottom"m horizontal="end" slot="fixed">
+  <ion-fab-button xpand="block" (click)="toFilter()" class="addButton">
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
+
+  </div>
+</ion-content>
+<app-block-loading></app-block-loading>
+
+
+

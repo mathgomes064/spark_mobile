@@ -1,0 +1,274 @@
+.propertyTittle {
+    padding-top:  5%;
+    padding-bottom: 5%;
+}
+
+.compartimentoTittle{
+    width: 100%;
+    text-align: center;
+    padding: 20px 0;
+    color: #FFE666;
+}
+
+.fullContainer{
+    width: 100%;
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    .cardContainer{
+        width: 100%;
+        min-width: 250px;
+        max-width: 425px;
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+        .card{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 90%;
+            margin: 5px 0;
+            border-radius: 12px;
+            border: 1px solid #FFFFFF;
+            color: #000000;
+            padding: 10px;
+
+            .iconDiv{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 10%;
+                font-size: 30px;
+                color: #FFFFFF;
+            }
+
+            .contentDiv{
+                width: 86%;
+                color: #FFFFFF;
+                font-size: 14px;
+
+                .bold{
+                    font-weight: bold;
+                    color: #FFE666;
+                }
+
+                .contentDiv1{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 5px 0;
+
+                }
+
+                .contentDiv2{
+                    h1{
+                        padding: 5px 0;
+                    }
+
+                }
+
+                .contentDiv3{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+            }
+
+             .innerButtonDiv{
+                width: 100%;
+                background-color: gray;
+             }
+
+             .editButton{
+                width: 25px;
+                height: 25px;
+                border-radius: 100px;
+             }
+
+        }
+
+    }
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.center-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5%;
+    border-bottom: 1px solid white;
+    width: 70vw;
+    padding-bottom: 10px;
+
+    p{
+        color: #FFF;
+        font-family: Roboto;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+
+
+
+
+.name {
+    color: #FFF;
+    text-align: center;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.editButton{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+    border-radius: 100px;
+    background-color: #FFFFFF;
+    vertical-align: bottom;
+ }
+
+.struct.property {
+    display: flex;
+    width: 260px;
+  }
+  
+
+  
+.value-wrapper {
+display: flex;
+flex-direction: column;
+align-items: flex-start; /* Alinha os elementos filho à esquerda */
+}
+
+
+.icon-edit {
+    position: absolute; /* Permite posicionar o ícone de edição em qualquer lugar dentro do elemento pai */
+    bottom: 5px; /* Alinha o ícone na parte inferior do elemento pai */
+    right: 10px; /* Alinha o ícone à direita do elemento pai */
+  }
+
+.value--name {
+    width: 100px;
+}
+
+.toEdificiosButton{
+    width: 90%;
+    min-width: 250px;
+    max-width: 425px;
+    margin-top: 10px;
+    color: #000000;
+    font-weight: bold;
+    --background: #FFE666;
+    --border-radius: 10px;
+}
+
+.headerItens{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #112037;
+
+    .back-icon{
+        color: #FFFFFF;
+    }
+
+    .innerDiv{
+        width: 90%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .logo{
+            width: 100px;
+        }
+
+        .userIcon{
+            color: white;
+        }
+    }
+}
+
+
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    justify-content: center;
+    padding-top: 15px;
+
+    ion-button {
+        --border-radius: 100%;
+        width: 70px;
+        height: 70px;
+        --background: #FFE666;
+        color: #112037;
+        font-family: Roboto;
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+    }
+}
+
+#images{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img{
+        margin: 25px auto;
+    }
+
+    .button-img {
+        width: 90%;
+        min-width: 250px;
+        max-width: 425px;
+        margin-top: 10px;
+        color: #000000;
+        font-weight: bold;
+        --background: transparent;
+        border: 1px solid #FFE666;
+        color: #FFE666;
+        border-radius: 10px;
+    
+        .camera-icon{
+            padding: 0 10px;
+        }
+    }
+}
+
+.inputDiv{
+    display: flex;
+    justify-content: space-between;
+
+    .innerInput{
+        margin: 10px 0;
+        --border-color: #FFE666;
+        color: #FFFFFF;
+        margin-right: 5px;
+    }
+
+  
+}

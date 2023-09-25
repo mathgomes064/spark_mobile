@@ -1,0 +1,114 @@
+<app-menu [currentBackNavigation]="navigateFilterItens"></app-menu>
+
+<ion-content [fullscreen]="true" scroll-assist="false">
+
+  <div class="center" >
+    <p class="center-text">
+       Modelos
+    </p>
+  </div>
+  
+  <div >
+    <div class="null" *ngIf="subtipos.length === 0" > 
+      <img src="../../assets/icon/search.svg" alt="">
+      <p class="desc">Nenhum modelo cadastrado</p>
+    </div>
+  </div>
+
+  <ul class="cardContainer" *ngFor="let subtipo of subtipos">
+    <li class="card" (click)="setOpen(true, subtipo.id)">
+        <ion-grid >
+          <ion-row>
+            <ion-col size="8"  class="infoContainer">
+                <div class="details">
+                  <div class="header">
+                    <div class="title"><b class="bold">Nome: </b> {{ subtipo.descricao }}</div>
+                  </div>
+
+                  <div class="header">
+                      <p class="title"><b class="bold">Linha: </b> {{ subtipo.linha }}</p> 
+                  </div>
+               
+
+                  <div class="header">
+                    <p class="title"><b class="bold">Unidade de medida: </b> {{ subtipo.tipoItemAtributo[0].unidade }}</p> 
+                  </div>
+                  <div class="header">
+                    <p class="title"><b class="bold">Sigla: </b> {{ subtipo.tipoItemAtributo[0].sigla }}</p> 
+                  </div>
+                </div>
+            </ion-col>
+
+            <ion-col class="imgContainer" size="4">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+    </li>
+  </ul>
+    
+</ion-content>
+
+
+
+<ion-modal  [isOpen]="isModalOpen">
+  <ng-template>
+    <ion-header class="headerItens" [translucent]="true" id="main-content">
+      <div class="innerDiv">
+        <ion-icon (click)="setOpen(false, '')"  class="back-icon" name="arrow-back"></ion-icon>
+        <ion-img class="logo" src="../../assets/spark-logo.svg" alt="sparkk-logo"></ion-img>
+        <div>
+          
+        </div>
+      </div>
+  </ion-header>
+  
+
+  <ion-content class="ion-padding">
+    <div class="center">
+        <p class="center-text-header">Adicionar Item</p>
+        <hr />
+    </div>
+    <form >
+        <div style="padding: 5px;">
+            <ion-input class="innerInput" name="nome" label="Nome" [(ngModel)]="formData.descricao"  label-placement="floating" fill="outline" placeholder="Insira um nome"></ion-input>
+        </div>
+
+        <div style="padding: 5px;">
+           <ion-input type="number" class="innerInput"  name="quantidade" label="Quantidade" [(ngModel)]="formData.quantidade" label-placement="floating" fill="outline" placeholder="Insira uma quantidade"></ion-input>
+      </div>
+
+        <div class="grid-system">
+            <div class="grid-item" *ngFor="let input of formStruct; let i = index">
+                <div *ngIf="input.selecionavel === 'sim'">
+                  <ion-list>
+                    <ion-select  name="{{input.id}}" [(ngModel)]="input.valor"  placeholder="{{ input.descricao }}">
+                      <ion-select-option  name="valor"  *ngFor="let options of input.tipoItemValor"  [value]="options.valor">{{options.valor}} ({{ input.sigla}})</ion-select-option>
+                    </ion-select>
+                </ion-list>
+                   
+                </div>
+
+                <div *ngIf="input.selecionavel === 'não'">
+                    <ion-input class="innerInput" name="{{input.id}}" label="{{ input.descricao }}" [(ngModel)]="input.valor" label-placement="floating" fill="outline" placeholder="Insira {{ input.descricao }}"></ion-input>
+                </div>
+            </div>
+        </div>
+
+        <div id="images">
+            <div *ngIf="currentAnexos.length > 0">
+                <app-image-carosel *ngIf="currentAnexos" [currentAnexos]="currentAnexos"></app-image-carosel>
+            </div>
+
+            <button type="button" class="button-img" (click)="takePicture()">
+                Capturar imagem
+            </button>
+        </div>
+
+        <div class="actions">
+            <ion-button [disabled]="!submitButton" type="submit" (click)="handleSubmit()">Salvar</ion-button>
+        </div>
+    </form>
+</ion-content>
+    
+  </ng-template>
+</ion-modal>
